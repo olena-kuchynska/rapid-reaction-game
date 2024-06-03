@@ -1,0 +1,4 @@
+{
+  "*.{ts, html}": ["eslint --format=stylish --fix"],
+  "*.{json, scss}": ["prettier --write"]
+}
