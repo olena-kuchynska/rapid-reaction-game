@@ -1,0 +1,23 @@
+@import 'variables';
+
+.board {
+  --board-size: 500px;
+
+  display: grid;
+  width: var(--board-size);
+  height: var(--board-size);
+  grid-template: repeat(10, 1fr) / repeat(10, 1fr);
+  gap: 10px;
+  margin: 15px;
+  justify-items: center;
+
+  &__element {
+    width: 100%;
+    height: 100%;
+    background-color: $element-bg-color;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
