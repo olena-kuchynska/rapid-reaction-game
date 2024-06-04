@@ -1,0 +1,11 @@
+<div class="board">
+  <div
+    *ngFor="let element of elements; trackBy: trackByFn"
+    class="board__element shadow-sm rounded bg-gradient"
+    [ngClass]="{
+      'bg-danger': element.isFailed,
+      'bg-success': element.isSucceed,
+      'bg-warning': element.isActive
+    }"
+    (click)="clickElement(element)"></div>
+</div>

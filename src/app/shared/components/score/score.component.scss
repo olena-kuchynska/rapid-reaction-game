@@ -1,0 +1,16 @@
+.score {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+
+  &__label {
+    width: 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__result {
+    white-space: pre;
+  }
+}

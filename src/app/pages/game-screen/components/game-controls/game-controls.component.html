@@ -1,0 +1,19 @@
+<div id="timerLimitHelpBlock" class="form-text text-center fs-6">
+  Enter timer limit not less than {{ minTimerValue }} ms
+</div>
+
+<div class="game-controls">
+  <input
+    type="number"
+    class="form-control"
+    aria-describedby="timerLimitHelpBlock"
+    #timerLimitModel="ngModel"
+    [min]="minTimerValue"
+    [(ngModel)]="timerLimit">
+  <button
+    class="btn btn-success"
+    [disabled]="timerLimitModel.invalid"
+    (click)="startGame()">
+    START
+  </button>
+</div>

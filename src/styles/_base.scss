@@ -1,0 +1,19 @@
+@import 'variables';
+
+body {
+  background-color: $base-bg-color;
+}
+
+.modal-body {
+  .score {
+    &--success {
+      .score__result {
+        color: $success-color;
+      }
+    }
+
+    &__result {
+      color: $failed-color;
+    }
+  }
+}
