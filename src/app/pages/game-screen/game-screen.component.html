@@ -2,5 +2,7 @@
   <h3 class="game-caption">Rapid Reaction Game</h3>
   <app-score [succeedCount]="succeedCount$ | async" [failedCount]="failedCount$ | async"></app-score>
   <app-game-board [elements]="elements$ | async" (clickOnActive)="clickOnActive($event)"></app-game-board>
-  <app-game-controls (startGameEvent)="startGame($event)"></app-game-controls>
+  <app-game-controls (startGameEvent)="setUpGame($event)"></app-game-controls>
 </div>
+
+<app-countdown (countdownFinished)="startGame()"></app-countdown>

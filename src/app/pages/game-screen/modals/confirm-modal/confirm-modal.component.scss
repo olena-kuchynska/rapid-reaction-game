@@ -1,0 +1,11 @@
+.modal-controls {
+  display: flex;
+  justify-content: center;
+  justify-content: flex-end;
+
+  .btn {
+    &:first-child {
+      margin-right: 10px;
+    }
+  }
+}

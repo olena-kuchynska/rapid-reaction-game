@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { GameControlsComponent } from './game-controls.component';
 
@@ -9,7 +9,7 @@ describe('GameControlsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule],
+      imports: [ReactiveFormsModule],
       declarations: [GameControlsComponent]
     });
     fixture = TestBed.createComponent(GameControlsComponent);

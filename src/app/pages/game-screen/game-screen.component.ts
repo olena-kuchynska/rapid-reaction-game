@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, OnInit, ViewChild } from '@angular/core';
 
 import { ManageGameService } from './services/manage-game.service';
+import { CountdownComponent } from '@shared/components/countdown/countdown.component';
 
 @Component({
   selector: 'app-game-screen',
@@ -9,6 +10,17 @@ import { ManageGameService } from './services/manage-game.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GameScreenComponent implements OnInit {
+  @ViewChild(CountdownComponent) countdownComponent: CountdownComponent;
+
+  @HostListener('window:focus')
+  focusWindowHandler(): void {
+    this.manageGameService.checkAndResumeGame();
+  }
+  @HostListener('window:blur')
+  blurWindowHandler(): void {
+    this.manageGameService.checkAndPauseGame();
+  }
+
   readonly elements$ = this.manageGameService.boardElements$;
   readonly succeedCount$ = this.manageGameService.succeedScore$;
   readonly failedCount$ = this.manageGameService.failedScore$;
@@ -19,8 +31,12 @@ export class GameScreenComponent implements OnInit {
     this.manageGameService.createBoardElements();
   }
 
-  startGame(speedLimit: number): void {
-    this.manageGameService.startGame(speedLimit);
+  setUpGame(timerLimit: number): void {
+    this.manageGameService.setUpGame(timerLimit)?.subscribe(() => this.countdownComponent.startCountdown());
+  }
+
+  startGame(): void {
+    this.manageGameService.startGame();
   }
 
   clickOnActive(elementId: number): void {

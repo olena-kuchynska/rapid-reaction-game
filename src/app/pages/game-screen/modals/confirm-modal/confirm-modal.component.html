@@ -1,0 +1,29 @@
+<div class="modal-header">
+  <h4 class="modal-title text-center">Restarting Game</h4>
+  <button
+    type="button"
+    class="btn-close close pull-right"
+    aria-label="Close"
+    (click)="hide()">
+    <span aria-hidden="true" class="visually-hidden">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body">
+  <p class="text-center">Are you sure you want to restart the game?</p>
+  <div class="modal-controls">
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="handleRestartGame()">
+      Yes
+    </button>
+
+    <button
+      type="button"
+      class="btn"
+      (click)="hide()">
+      No
+    </button>
+  </div>
+</div>
